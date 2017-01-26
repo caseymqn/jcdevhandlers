@@ -13,7 +13,7 @@ definition(
 
 preferences {
 	section("Set these bulbs to 5000k...") {input "bulbs", "capability.colorTemperature", title: "Which bulbs do you want to manage?", multiple:true, required: false}
-//    section("And set to this temperature...") {input "colorTemp", type: "number", title: "Color Temperature? (2700-6500)", required: false, defaultValue:"5000"}
+	section("And set to this temperature...") {input "colorTemp", type: "number", title: "Color Temperature? (2700-6500)", required: false, defaultValue:"5000"}
 }
 
 def installed() {
@@ -36,4 +36,4 @@ def initialize() {
 def bulbHandler(evt) {
     def colorTemp = 5000
     for(bulb in bulbs) {if(bulb.currentValue("switch") == "on") {bulb.setColorTemperature(colorTemp)}}
-} 
+}
